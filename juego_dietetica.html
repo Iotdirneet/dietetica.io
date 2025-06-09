@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Interactivo de Dietética</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Pantalla de inicio -->
+        <div id="start-screen" class="screen active">
+            <h1>¡Bienvenido al Juego de Dietética!</h1>
+            <p>Aprende sobre alimentación saludable de forma divertida</p>
+            <h2>Selecciona tu personaje:</h2>
+            <div class="character-selection">
+                <div class="character" onclick="selectCharacter('niño')">
+                    <img src="niño.png" alt="Niño">
+                    <p>Niño</p>
+                </div>
+                <div class="character" onclick="selectCharacter('niña')">
+                    <img src="niña.png" alt="Niña">
+                    <p>Niña</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú principal -->
+        <div id="main-menu" class="screen">
+            <div class="player-info">
+                <img id="player-avatar" src="" alt="Jugador">
+                <h2 id="player-name"></h2>
+                <p>Puntos totales: <span id="total-points">0</span></p>
+            </div>
+            <h1>Menú Principal</h1>
+            <div class="menu-options">
+                <button onclick="showLevelMenu()">Cuestionarios</button>
+                <button onclick="showActivityMenu()">Actividades</button>
+                <button onclick="showProgress()">Mi Progreso</button>
+            </div>
+        </div>
+
+        <!-- Menú de niveles -->
+        <div id="level-menu" class="screen">
+            <h2>Selecciona un Nivel</h2>
+            <div class="level-grid">
+                <div class="level-card" onclick="startLevel(1)">
+                    <h3>Nivel 1</h3>
+                    <p>Conociendo los Alimentos</p>
+                    <span class="points">70 puntos máx.</span>
+                </div>
+                <div class="level-card" onclick="startLevel(2)">
+                    <h3>Nivel 2</h3>
+                    <p>Grupos Alimenticios</p>
+                    <span class="points">96 puntos máx.</span>
+                </div>
+                <div class="level-card" onclick="startLevel(3)">
+                    <h3>Nivel 3</h3>
+                    <p>Menús Saludables</p>
+                    <span class="points">100 puntos máx.</span>
+                </div>
+                <div class="level-card" onclick="startLevel(4)">
+                    <h3>Nivel 4</h3>
+                    <p>Hábitos de Alimentación</p>
+                    <span class="points">109 puntos máx.</span>
+                </div>
+            </div>
+            <button onclick="showMainMenu()">Volver</button>
+        </div>
+
+        <!-- Menú de actividades -->
+        <div id="activity-menu" class="screen">
+            <h2>Actividades Interactivas</h2>
+            <div class="activity-grid">
+                <div class="activity-card" onclick="startActivity('clasificacion')">
+                    <h3>Clasificación de Alimentos</h3>
+                    <p>Arrastra los alimentos a su grupo correcto</p>
+                </div>
+                <div class="activity-card" onclick="startActivity('piramide')">
+                    <h3>Construye la Pirámide</h3>
+                    <p>Organiza los alimentos en la pirámide nutricional</p>
+                </div>
+                <div class="activity-card" onclick="startActivity('menu')">
+                    <h3>Diseña tu Menú</h3>
+                    <p>Crea un menú semanal equilibrado</p>
+                </div>
+                <div class="activity-card" onclick="startActivity('diario')">
+                    <h3>Diario de Hábitos</h3>
+                    <p>Registra tus hábitos saludables</p>
+                </div>
+            </div>
+            <button onclick="showMainMenu()">Volver</button>
+        </div>
+
+        <!-- Pantalla de cuestionario -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <h2 id="quiz-title"></h2>
+                <div class="quiz-progress">
+                    <span id="question-counter"></span>
+                    <div class="progress-bar">
+                        <div id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="question-container">
+                <h3 id="question-text"></h3>
+                <div id="options-container"></div>
+                <button id="next-button" onclick="nextQuestion()" style="display:none;">Siguiente</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de actividad -->
+        <div id="activity-screen" class="screen">
+            <div class="activity-header">
+                <h2 id="activity-title"></h2>
+                <button onclick="showActivityMenu()">Volver</button>
+            </div>
+            <div id="activity-container"></div>
+        </div>
+
+        <!-- Pantalla de resultados -->
+        <div id="results-screen" class="screen">
+            <h2>¡Resultados!</h2>
+            <div id="results-content">
+                <p id="score-text"></p>
+                <p id="medal-text"></p>
+                <div id="medal-icon"></div>
+            </div>
+            <div class="results-buttons">
+                <button onclick="showLevelMenu()">Otros Niveles</button>
+                <button onclick="showMainMenu()">Menú Principal</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de progreso -->
+        <div id="progress-screen" class="screen">
+            <h2>Mi Progreso</h2>
+            <div id="progress-content">
+                <div class="progress-summary">
+                    <h3>Resumen General</h3>
+                    <p>Puntos totales: <span id="progress-total-points">0</span></p>
+                    <p>Niveles completados: <span id="completed-levels">0</span>/4</p>
+                    <p>Actividades completadas: <span id="completed-activities">0</span>/4</p>
+                </div>
+                <div class="level-progress">
+                    <h3>Progreso por Nivel</h3>
+                    <div id="level-progress-list"></div>
+                </div>
+            </div>
+            <button onclick="showMainMenu()">Volver</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
