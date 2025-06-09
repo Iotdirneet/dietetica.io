@@ -17,21 +17,21 @@ const levels = [
         id: 2,
         title: "Grupos Alimenticios",
         description: "Descubre los diferentes grupos de alimentos y la pirámide nutricional.",
-        formUrl: "https://forms.gle/AQiTKAi9zjcf2osn9", // Reemplazar con URL real
+        formUrl: "https://forms.gle/z3pGGmG52nxj5dbA9", // Reemplazar con URL real
         maxPoints: 80 // Basado en el cuestionario nivel 2 (8 puntos x 10 preguntas)
     },
     {
         id: 3,
         title: "Menús Saludables",
         description: "Aprende a crear menús equilibrados y saludables para cada día.",
-        formUrl: "https://forms.gle/WzEceo5aK7kGDrHB6", // Reemplazar con URL real
+        formUrl: "https://forms.gle/vvYyg4MSV9mwaHCs8", // Reemplazar con URL real
         maxPoints: 100 // Basado en el cuestionario nivel 3 (10 puntos x 10 preguntas)
     },
     {
         id: 4,
         title: "Hábitos de Alimentación",
         description: "Conoce los buenos hábitos alimenticios e higiénicos para cuidar tu salud.",
-        formUrl: "https://forms.gle/SaLHAJnZt3vDiPWBA", // Reemplazar con URL real
+        formUrl: "https://forms.gle/AaVecyUQFCksWeFP7", // Reemplazar con URL real
         maxPoints: 90 // Basado en el cuestionario nivel 4 (9 puntos x 10 preguntas)
     }
 ];
