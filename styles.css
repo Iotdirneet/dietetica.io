@@ -81,8 +81,8 @@ h3 {
 .character img {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+    /* border-radius: 50%; */ /* Eliminado para mostrar la imagen completa */
+    object-fit: contain; /* Cambiado de cover a contain */
     margin-bottom: 10px;
 }
 
@@ -106,8 +106,8 @@ h3 {
 .player-info img {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+    /* border-radius: 50%; */ /* Eliminado para mostrar la imagen completa */
+    object-fit: contain; /* Cambiado de cover a contain */
 }
 
 .player-info h2 {
